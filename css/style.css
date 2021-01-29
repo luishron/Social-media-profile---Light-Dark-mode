@@ -1,0 +1,272 @@
+@import url('https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@400;700&display=swap');
+html {
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+
+*,
+*::after,
+*::before {
+  box-sizing: inherit;
+  margin: 0;
+}
+:root {
+  --primary: #42a5f5;
+  --secondary: #5c6bc0;
+  --title-color: #0077c2;
+  --age-color: #26c6da;
+  --subtitle-color: #78909c;
+  --img-filter: brightness(1) contrast(1);
+  --bg-color: url(/images/light-shape-2.svg) top -200px left -200px no-repeat,
+    url(/images/dots.svg) top 300px left 50px no-repeat,
+    url(/images/light-shape-1.svg) bottom -200px right -200px no-repeat,
+    url(/images/dots.svg) bottom -250px right -500px no-repeat, #b0e0e6;
+  --bg-card: white;
+  --bg-header: linear-gradient(var(--primary) 0%, var(--secondary) 50%);
+  --bg-switch: linear-gradient(
+    to right,
+    var(--primary) 0%,
+    var(--secondary) 50%
+  );
+}
+body {
+  background: var(--bg-color);
+  background-size: 600px, 600px, 600px, 600px, cover;
+  font-family: 'Kumbh Sans', sans-serif;
+  font-size: 18px;
+}
+header {
+  position: relative;
+  padding: 15px 0;
+  margin-bottom: 50px;
+}
+.container {
+  width: 100%;
+  padding-right: 15px;
+  padding-left: 15px;
+  margin-right: auto;
+  margin-left: auto;
+}
+.wrapper {
+  margin: 0 auto;
+  width: 100%;
+}
+.card {
+  border-radius: 0.5em;
+  background: var(--bg-card);
+  box-shadow: 2px 10px 16px -3px rgba(0, 0, 0, 0.35);
+  -webkit-box-shadow: 2px 10px 16px -3px rgba(0, 0, 0, 0.35);
+  -moz-box-shadow: 2px 10px 16px -3px rgba(0, 0, 0, 0.35);
+  overflow: hidden;
+  width: 100%;
+}
+.card-header {
+  position: relative;
+  height: 150px;
+  background-repeat: repeat;
+}
+.card-header::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: var(--bg-header);
+  border-radius: 0 0 20% 20%;
+  z-index: 0;
+}
+.card-photo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  align-content: center;
+}
+.card-photo img {
+  border: 0.3em solid var(--secondary);
+  box-sizing: border-box;
+  border-radius: 50%;
+  margin-top: -50px;
+  height: 120px;
+  width: auto;
+  z-index: 1;
+  filter: var(--img-filter);
+}
+
+.card-title {
+  text-align: center;
+  padding: 1em 15px;
+}
+.card-title-name {
+  font-size: 1.8em;
+  line-height: 1.8em;
+  color: var(--title-color);
+}
+.card-title-age {
+  color: var(--age-color);
+}
+.card-title-city {
+  color: var(--subtitle-color);
+}
+.card-social-media {
+  position: relative;
+  padding: 15px;
+  margin: 1em 0;
+  text-align: center;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+}
+.card-social-media::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background: linear-gradient(
+    to right,
+    var(--primary) 0%,
+    var(--secondary) 50%
+  );
+}
+.social-media-followers {
+}
+
+.followers-number,
+.likes-number,
+.photos-number {
+  font-size: 1.4em;
+  font-weight: 700;
+  color: var(--title-color);
+  line-height: 1.4em;
+}
+
+.followers-title,
+.likes-title,
+.photos-title {
+  font-size: 0.8em;
+  font-weight: 400;
+  color: var(--subtitle-color);
+}
+input[type='checkbox'] {
+  height: 0;
+  width: 0;
+  visibility: hidden;
+}
+
+label {
+  cursor: pointer;
+  text-indent: -9999px;
+  width: 60px;
+  height: 30px;
+  background: var(--bg-switch);
+  display: block;
+  border-radius: 20px;
+  position: relative;
+}
+
+label:after {
+  content: '';
+  position: absolute;
+  top: 5px;
+  left: 5px;
+  width: 20px;
+  height: 20px;
+  background: #fff;
+  border-radius: 20px;
+  transition: 0.3s;
+}
+
+input:checked + label {
+  background: var(--bg-switch);
+}
+
+input:checked + label:after {
+  left: calc(100% - 5px);
+  transform: translateX(-100%);
+}
+
+label:active:after {
+  width: 60px;
+}
+
+.switch-area {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  height: 30px;
+}
+
+.is-dark-mode {
+  --primary: #000051;
+  --secondary: #12005e;
+  --title-color: #dcdcdc;
+  --age-color: #6ff9ff;
+  --subtitle-color: #78909c;
+  --img-filter: brightness(0.85) contrast(1.1);
+  --bg-color: url(/images/dark-shape-2.svg) top -200px left -200px no-repeat,
+    url(/images/dots.svg) top 300px left 50px no-repeat,
+    url(/images/dark-shape-1.svg) bottom -200px right -200px no-repeat,
+    url(/images/dots.svg) bottom -250px right -500px no-repeat, #141414;
+  --bg-card: #212121;
+  --bg-header: linear-gradient(var(--primary) 0%, var(--secondary) 50%);
+  --bg-switch: linear-gradient(
+    to right,
+    var(--primary) 0%,
+    var(--secondary) 50%
+  );
+}
+
+.is-light-mode {
+  --primary: #42a5f5;
+  --secondary: #5c6bc0;
+  --title-color: #0077c2;
+  --age-color: #26c6da;
+  --subtitle-color: #78909c;
+  --img-filter: brightness(1) contrast(1);
+  --bg-color: url(/images/light-shape-2.svg) top -200px left -200px no-repeat,
+    url(/images/dots.svg) top 300px left 50px no-repeat,
+    url(/images/light-shape-1.svg) bottom -200px right -200px no-repeat,
+    url(/images/dots.svg) bottom -250px right -500px no-repeat, #b0e0e6;
+  --bg-card: white;
+  --bg-header: linear-gradient(var(--primary) 0%, var(--secondary) 50%);
+  --bg-switch: linear-gradient(
+    to right,
+    var(--primary) 0%,
+    var(--secondary) 50%
+  );
+}
+
+@media screen and (min-width: 480px) {
+  .card {
+    min-width: 340px;
+    max-width: 360px;
+    margin: 0 auto;
+  }
+  .wrapper {
+    max-width: 1440px;
+    margin: auto;
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --primary: #000051;
+    --secondary: #12005e;
+    --title-color: #dcdcdc;
+    --age-color: #6ff9ff;
+    --subtitle-color: #78909c;
+    --img-filter: brightness(0.85) contrast(1.1);
+    --bg-color: url(/images/dark-shape-2.svg) top -200px left -200px no-repeat,
+      url(/images/dots.svg) top 300px left 50px no-repeat,
+      url(/images/dark-shape-1.svg) bottom -200px right -200px no-repeat,
+      url(/images/dots.svg) bottom -250px right -500px no-repeat, #141414;
+    --bg-card: #212121;
+    --bg-header: linear-gradient(var(--primary) 0%, var(--secondary) 50%);
+    --bg-switch: linear-gradient(
+      to right,
+      var(--primary) 0%,
+      var(--secondary) 50%
+    );
+  }
+}
